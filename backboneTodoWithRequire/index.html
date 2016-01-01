@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en" data-framework="backbonejs">
+    <head>
+        <meta charset="utf-8">
+        <title>Backbone.js • TodoMVC</title>
+        <link rel="stylesheet" href="node_modules/todomvc-common/base.css">
+        <link rel="stylesheet" href="node_modules/todomvc-app-css/index.css">
+    </head>
+    <body>
+        <section class="todoapp">
+            <header class="header">
+                <h1>todos</h1>
+                <input class="new-todo" placeholder="What needs to be done?" autofocus>
+            </header>
+            <section class="main">
+                <input class="toggle-all" id="toggle-all" type="checkbox">
+                <label for="toggle-all">Mark all as complete</label>
+                <ul class="todo-list"></ul>
+            </section>
+            <footer class="footer"></footer>
+        </section>
+
+        <script type="text/template" id="item-template">
+            <div class="view">
+                <input class="toggle" type="checkbox">
+                <label><%- title %></label>
+                <button class="destroy"></button>
+            </div>
+        </script>
+
+        <!-- 使用requirejs加载 -->
+        <script src="node_modules/requirejs/require.js" data-main="js/main"></script>
+    </body>
+</html>

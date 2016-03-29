@@ -11,12 +11,14 @@ var app = app || {};
             this.$input = this.$('.new-todo');
             this.$list = this.$('.todo-list');
             
+            //监听 app.todos 
             this.listenTo(app.todos,'add',this.addOne);
         },
         render: function(){
 
         },
         addOne: function(todo){
+            //更新界面
             var view = new app.TodoView({model: todo});
             this.$list.append(view.render().el);
         },

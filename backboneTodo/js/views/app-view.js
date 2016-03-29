@@ -13,6 +13,10 @@ var app = app || {};
             
             //监听 app.todos 
             this.listenTo(app.todos,'add',this.addOne);
+            this.listenTo(app.todos, 'reset', this.addAll);
+            //this.listenTo(app.todos, 'all', _.debounce(this.render, 0));
+
+            app.todos.fetch({reset: true});  //获取 local 中的数据
         },
         render: function(){
 
@@ -21,6 +25,11 @@ var app = app || {};
             //更新界面
             var view = new app.TodoView({model: todo});
             this.$list.append(view.render().el);
+        },
+        // Add all items in the **Todos** collection at once.
+        addAll: function () {
+            this.$list.html('');
+            app.todos.each(this.addOne, this);
         },
         newAttributes: function(){
             return {

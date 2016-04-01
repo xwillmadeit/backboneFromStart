@@ -30,7 +30,6 @@ require([
     'home/views/home'  
 ],function(Backbone,HomeView){
 
-    //kick off
     new HomeView();
 
 });

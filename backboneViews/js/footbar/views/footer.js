@@ -3,12 +3,12 @@ define([
     'jquery',
     'underscore',
     'doT',
-    'text!/footbar/templates/footer.html'
+    'text!footbar/templates/footer.html'
 ],function(Backnone,$,_,doT,footerTemplate){
     var FooterView = Backnone.View.extend({
         template: doT.template(footerTemplate),
         initialize: function(){
-            this.render();
+            
         },
         render: function(){
             console.log('render footer');

@@ -12,15 +12,20 @@ define([
         template: doT.template(contentTemp),
         initialize: function(){
             //内容区域需要渲染每一个商品，所以在这里遍历
+            console.log('content initial');
             this.collection = new Collection();
             this.collection.on('sync',this.renderEach,this);
+            console.log('last line of initialize');
         },
         render: function(){
+            console.log('被上级render');
             this.collection.fetch();
             this.$el.html(this.template());
+            console.log('last line of render');
             return this;
         },
         renderEach: function(){
+            console.log('渲染每一个子内容块');
             this.collection.each(this.renderItem,this);
         },
         renderItem: function(item){

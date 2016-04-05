@@ -1,11 +1,10 @@
-define(['backbone'],
-    function(Backbone) {
+define([
+    'backbone',
+    'jquery'
+],function(Backbone,$){
 
-        return Backbone.Collection.extend({
+    return Backbone.Collection.extend({
+        url: 'js/goods.json'
+    });
 
-            url: 'js/goods.json'
-
-        });
-
-    }
-);
+});

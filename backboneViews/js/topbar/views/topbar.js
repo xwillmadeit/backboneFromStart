@@ -1,22 +1,17 @@
 define([
     'backbone',
     'jquery',
-    'underscore',
     'doT',
     'text!topbar/templates/topbar.html'
-],function(Backnone,$,_,doT,topbarTemplate){
-    var TopbarView = Backnone.View.extend({
+],function(Backbone,$,doT,topbarTemp){
+    var TopbarView = Backbone.View.extend({
         id: 'topbar',
         className: 'my-topbar',
-        template: doT.template(topbarTemplate),
-        initialize: function(){
-
-        },
+        template: doT.template(topbarTemp),
         render: function(){
-            console.log(this.model.toJSON()); // this.model 的值由 new TopbarView 时传入
-            this.$el.html(this.template(this.model.toJSON())); //this.$el 由 tagName (默认div)，id，className 组成
+            this.$el.html(this.template());
             return this;
         }
-    }); 
+    });
     return TopbarView;
 });

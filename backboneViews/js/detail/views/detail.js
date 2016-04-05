@@ -1,24 +1,21 @@
 define([
     'backbone',
     'jquery',
-    'underscore',
     'doT',
     'text!detail/templates/detail.html'
-],function(Backnone,$,_,doT,detailTemplate){
-    var DetailView = Backnone.View.extend({
+],function(Backbone,$,doT,detailTemp){
+    var DetailView = Backbone.View.extend({
         tagName: 'li',
-        id: 'detail',
-        className: 'my-detail',
-        template: doT.template(detailTemplate),
+        className: 'good-detail',
+        template: doT.template(detailTemp),
         initialize: function(){
             
         },
         render: function(){
-            console.log('render detail');
-            console.log(this.model);
-            this.$el.html(this.template(this.model.toJSON())); 
+            console.log('render goods');
+            this.$el.html(this.template(this.model.toJSON()));
             return this;
         }
-    }); 
+    });
     return DetailView;
 });

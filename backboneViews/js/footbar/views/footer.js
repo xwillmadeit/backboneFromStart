@@ -1,21 +1,17 @@
 define([
     'backbone',
     'jquery',
-    'underscore',
     'doT',
     'text!footbar/templates/footer.html'
-],function(Backnone,$,_,doT,footerTemplate){
-    var FooterView = Backnone.View.extend({
-        id: 'footer',
+],function(Backbone,$,doT,footerTemp){
+    var FooterView = Backbone.View.extend({
+        id: 'footerBar',
         className: 'my-footer',
-        template: doT.template(footerTemplate),
-        initialize: function(){
-            
-        },
+        template: doT.template(footerTemp),
         render: function(){
-            this.$el.html(this.template()); //浏览器文件被拦截
+            this.$el.html(this.template());
             return this;
         }
-    }); 
+    });
     return FooterView;
 });

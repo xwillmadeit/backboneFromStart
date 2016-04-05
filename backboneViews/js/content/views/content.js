@@ -10,6 +10,24 @@ define([
         id: 'content',
         className: 'my-content',
         template: doT.template(contentTemp),
+        events: {
+            'click .cal': 'calcu',
+            'click .cal': 'calcu'
+        },
+        calcu: function(e){
+            var calType = $(e.currentTarget).data('type'),
+                val = parseInt($('.total').val());
+
+            if(calType === 'plus'){
+                $('.total').val(val+1);
+            }else{
+                if(val>0){
+                    $('.total').val(val-1);
+                }else if(val==0){
+                    $('.minus').prop('disabled', true);
+                }
+            }
+        },
         initialize: function(){
             //内容区域需要渲染每一个商品，所以在这里遍历
             console.log('content initial');
